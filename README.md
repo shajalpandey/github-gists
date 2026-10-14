@@ -54,11 +54,14 @@ A simple Flask application that fetches public GitHub Gists for a given username
 ### 1. Build the Docker Image
 ```bash
 docker build -t github-gists:v1 .
+```
 
 ### 2. Run the Flask API Container
 ```bash
 docker run -d -p 8080:8080 --name flask-gists-api github-gists:v1
+```
 
 ### 3. Run Tests with Pytest
 ```bash
 docker run --rm github-gists:v1 pytest -vs
+```
