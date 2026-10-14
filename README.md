@@ -1,3 +1,32 @@
+## :warning: Please read these instructions carefully and entirely first
+* Clone this repository to your local machine.
+* Use your IDE of choice to complete the assignment.
+* When you have completed the assignment, you need to  push your code to this repository and [mark the assignment as completed by clicking here](https://app.snapcode.review/submission_links/bf17ce3d-45da-44f6-8a34-f482a78898ba).
+* Once you mark it as completed, your access to this repository will be revoked. Please make sure that you have completed the assignment and pushed all code from your local machine to this repository before you click the link.
+
+## Operability Take-Home Exercise
+
+Welcome to the start of our recruitment process for Operability Engineers. It was great to speak to you regarding an opportunity to join the Equal Experts network!
+
+Please write code to deliver a solution to the problems outlined below.
+
+We appreciate that your time is valuable and do not expect this exercise to **take more than 90 minutes**. If you think this exercise will take longer than that, I **strongly** encourage you to please get in touch to ask any clarifying questions.
+
+### Submission guidelines
+**Do**
+- Provide a README file in text or markdown format that documents a concise way to set up and run the provided solution.
+- Take the time to read any applicable API or service docs, it may save you significant effort.
+- Make your solution simple and clear. We aren't looking for overly complex ways to solve the problem since in our experience, simple and clear solutions to problems are generally the most maintainable and extensible solutions.
+
+**Don't**
+
+Expect the reviewer to dedicate a machine to review the test by:
+
+- Installing software globally that may conflict with system software
+- Requiring changes to system-wide configurations
+- Providing overly complex solutions that need to spin up a ton of unneeded supporting dependencies. We aspire to keep our dev experiences as simple as possible (but no simpler)!
+- Include identifying information in your submission. We are endeavouring to make our review process anonymous to reduce bias.
+
 ### Exercise
 If you have any questions on the below exercise, please do get in touch and we’ll answer as soon as possible.
 
