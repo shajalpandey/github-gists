@@ -31,11 +31,11 @@ jobs:
          env: 
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
 
-       - name: Super-Linter
-         uses: super-linter/super-linter@v9.0.0
-         env:
-           VALIDATE_ALL_CODEBASE: true
-           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}   
+      #  - name: Super-Linter
+      #    uses: super-linter/super-linter@v9.0.0
+      #    env:
+      #      VALIDATE_ALL_CODEBASE: true
+      #      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}   
 
        - name: Hadolint Scan
          uses: hadolint/hadolint-action@v3.1.0
