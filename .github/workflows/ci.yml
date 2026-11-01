@@ -51,7 +51,7 @@ jobs:
        - name: Trivy Scan Dockerfile
          uses: aquasecurity/trivy-action@master
          with:
-           scan-type: Dockerfile
+           scan-type: config
            scan-ref: .
            exit-code: 1
          if: always()  # Continue even if the scan fails
