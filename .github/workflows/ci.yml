@@ -37,3 +37,7 @@ jobs:
            VALIDATE_ALL_CODEBASE: true
            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}   
 
+       - name: Hadolint Scan
+         uses: hadolint/hadolint-action@v3.1.0
+         with:
+           dockerfile: Dockerfile 
