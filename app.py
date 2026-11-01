@@ -3,6 +3,10 @@ import requests
 
 app = Flask(__name__)
 
+@app.route('/health')
+def health_check():
+    return jsonify({'status': 'healthy'}), 200
+
 @app.route('/<username>')
 def get_user_gists(username):
     url = f"https://api.github.com/users/{username}/gists"
