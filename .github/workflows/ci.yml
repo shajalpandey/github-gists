@@ -22,17 +22,17 @@ jobs:
 
      steps:
        - name: Checkout code
-         uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608
+         uses: actions/checkout@v6
          with:
            fetch-depth: 0 # Fetch all history for all branches and tags
 
        - name: Gitleaks Secret Scanning
-         uses: gitleaks/gitleaks-action@8ade135a41bc03ea155e62e844d188df1ea18608
+         uses: gitleaks/gitleaks-action@v6
          env: 
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
 
        - name: Super-Linter
-         uses: github/super-linter@8ade135a41bc03ea155e62e844d188df1ea18608
+         uses: github/super-linter@v9.0.0
          env:
            VALIDATE_ALL_CODEBASE: true
            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}   
