@@ -41,3 +41,17 @@ jobs:
          uses: hadolint/hadolint-action@v3.1.0
          with:
            dockerfile: ./Dockerfile 
+
+       - name: Checkov Scan
+         uses: bridgecrewio/checkov-action@v12
+         with:
+           directory: .
+           framework: dockerfile     
+
+       - name: Trivy Scan Dockerfile
+         uses: aquasecurity/trivy-action@master
+         with:
+           scan-type: dockerfile
+           scan-ref: .
+           exit-code: 1
+         when: always()  # Continue even if the scan fails
