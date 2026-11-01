@@ -27,12 +27,12 @@ jobs:
            fetch-depth: 0 # Fetch all history for all branches and tags
 
        - name: Gitleaks Secret Scanning
-         uses: gitleaks/gitleaks-action@v6
+         uses: gitleaks/gitleaks-action@v3
          env: 
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
 
        - name: Super-Linter
-         uses: github/super-linter@v9.0.0
+         uses: super-linter/super-linter@v9.0.0
          env:
            VALIDATE_ALL_CODEBASE: true
            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}   
