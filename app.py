@@ -10,9 +10,8 @@ def get_user_gists(username):
     try:
         response = requests.get(url, timeout=5)
         response.raise_for_status()
-        if response.status_code == 200:
-            response = response.json()
-            return jsonify(response)
+        data = response.json()
+        return jsonify(data)
 
     except requests.exceptions.HTTPError as e:
         if e.response.status_code == 401:
@@ -29,10 +28,10 @@ def get_user_gists(username):
             return jsonify({'error': 'Unexpected error occurred'}), e.response.status_code
 
     except requests.exceptions.Timeout:
-        return jsonify({'error': 'Request timed out'}) 
+        return jsonify({'error': 'Request timed out'}), 504 
 
     except requests.exceptions.ConnectionError:
-        return jsonify({'error': 'Connection failed — check your internet or the URL'})
+        return jsonify({'error': 'Connection failed — check your internet or the URL'}), 502
 
 if __name__ == '__main__':
     app.run(debug=True)
