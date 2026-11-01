@@ -55,3 +55,11 @@ jobs:
            scan-ref: .
            exit-code: 1
          if: always()  # Continue even if the scan fails
+
+
+
+   code_scanning_sca:
+    name: Bandit (your Python code)
+    run: |
+      pip install bandit
+      bandit -r . -x ./venv       
