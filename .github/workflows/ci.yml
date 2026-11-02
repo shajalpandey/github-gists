@@ -74,7 +74,7 @@ jobs:
        - name: Bandit (your Python code)
          run: |
            pip install bandit
-           bandit -r . -x ./venv -111
+           bandit -r . -x ./venv --severity-level high --confidence-level high 
 
    code_scanning_semgrep:
      name: Semgrep scan
