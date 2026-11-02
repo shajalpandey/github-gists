@@ -113,3 +113,21 @@ jobs:
        with:
          sarif_file: trivy-sca-results.sarif
          category: trivy-sca-results
+
+     - name: Auto-Patch Vulnerabilities
+       id: auto_patch
+       run: |
+          if [ -f requirements.txt ]; then
+            echo "Found the python libraries requirements.txt file. Running pip-audit to check for vulnerabilities and auto-patch..."
+            pip install pip-audit
+            pip-audit --requirement requirements.txt --minimum-severity high --fix || true
+            pip install -r requirements.txt && pytest || true
+          fi
+
+     - name: Commit and Push Changes
+       run: |
+         git config --global user.email "action@github.com"
+         git config --global user.name "GitHub Action"
+         git add .
+         git commit -m "Auto-patch vulnerabilities"
+         git push
