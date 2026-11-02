@@ -58,12 +58,11 @@ jobs:
 
 
 
-   jobs:
-     bandit:
-      name: Scan Python code
-      runs-on: ubuntu-latest
+   code_scanning_sca:
+     name: Scan Python code
+     runs-on: ubuntu-latest
 
-      steps:
+     steps:
        - name: Checkout code
          uses: actions/checkout@v4
 
