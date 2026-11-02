@@ -120,7 +120,7 @@ jobs:
           if [ -f requirements.txt ]; then
             echo "Found the python libraries requirements.txt file. Running pip-audit to check for vulnerabilities and auto-patch..."
             pip install pip-audit
-            pip-audit --requirement requirements.txt --minimum-severity high --fix || true
+            pip-audit --requirement requirements.txt --fix 
             pip install -r requirements.txt && pytest || exit 1
           fi
 
