@@ -58,7 +58,7 @@ jobs:
 
 
 
-   code_scanning_sca:
+   code_scanning_bandit:
      name: Scan Python code
      runs-on: ubuntu-latest
 
@@ -74,4 +74,16 @@ jobs:
        - name: Bandit (your Python code)
          run: |
            pip install bandit
-           bandit -r . -x ./venv       
+           bandit -r . -x ./venv
+
+   code_scanning_semgrep:
+     name: Semgrep scan
+     runs-on: ubuntu-latest
+     container:
+       image: semgrep/semgrep
+     steps:
+       - name: Checkout code
+         uses: actions/checkout@v4
+
+       - name: Run Semgrep
+         run: semgrep scan --config p/python --config p/flask --severity HIGH --severity CRITICAL --error .     
