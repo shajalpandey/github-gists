@@ -87,3 +87,26 @@ jobs:
 
        - name: Run Semgrep
          run: semgrep scan --config p/python --config p/flask --severity ERROR --error --exclude-rule python.flask.security.injection.ssrf-requests.ssrf-requests .     
+
+   sca_scan_checks:
+     name: SCA Scan and Auto Remediation
+     needs: [security_checks, code_scanning_bandit, code_scanning_semgrep]
+     runs-on: ubuntu-latest
+     steps:
+     - name: Checkout code
+       uses: actions/checkout@v4
+
+     - name: Run Trivy SCA Scan
+       uses: aquasecurity/trivy-action@0.30.0
+       with:
+         scan-type: fs
+         format: sarif
+         scanners: vuln
+         severity: CRITICAL,HIGH
+         output: trivy-sca-results.sarif
+         exit-code: 1
+
+     - name: Upload Trivy SCA Scan Results
+       uses: github/codeql-action/upload-sarif@v3
+       with:
+         sarif_file: trivy-sca-results.sarif
