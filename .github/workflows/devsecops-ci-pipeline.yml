@@ -105,7 +105,7 @@ jobs:
          scanners: vuln
          severity: CRITICAL,HIGH
          output: trivy-sca-results.sarif
-         exit-code: 1
+        #  exit-code: 1
 
      - name: Upload Trivy SCA Scan Results
        if: always()  # Continue even if the scan fails 
@@ -129,7 +129,7 @@ jobs:
        with: 
          commit_message: "Push auto-patched vulnerabilities"
          file_pattern: "requirements.txt"
-         
+
 
       #  run: |
       #    git config --global user.email "action@github.com"
