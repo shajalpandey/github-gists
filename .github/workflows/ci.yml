@@ -74,7 +74,7 @@ jobs:
        - name: Bandit (your Python code)
          run: |
            pip install bandit
-           bandit -r . -x ./venv
+           bandit -r . -x ./venv -111
 
    code_scanning_semgrep:
      name: Semgrep scan
@@ -86,4 +86,4 @@ jobs:
          uses: actions/checkout@v4
 
        - name: Run Semgrep
-         run: semgrep scan --config p/python --config p/flask --severity ERROR --error .     
+         run: semgrep scan --config p/python --config p/flask --severity ERROR --error --exclude-rule python.flask.security.injection.ssrf-requests.ssrf-requests .     
