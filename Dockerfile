@@ -5,8 +5,8 @@ WORKDIR /app
 
 COPY . .
 
-RUN pip install --no-cache-dir --upgrade pip==26.2.1 setuptools==6.1.0 wheel==0.46.2 \
-    && pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt \
+    && pip uninstall -y setuptools wheel
 
 ENV FLASK_APP=app.py
 
