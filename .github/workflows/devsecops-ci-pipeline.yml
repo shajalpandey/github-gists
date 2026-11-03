@@ -1,4 +1,4 @@
-# docker tag github-gists:${{ steps.vars.outputs.SHORT_SHA }} asia-south1-docker.pkg.dev/virtual-limiter-237820/vulntracker/github-gists:${{ steps.vars.outputs.SHORT_SHA }}
+
 
 name: Github Actions DevSecOps Pipeline
 
@@ -167,14 +167,10 @@ jobs:
             exit-code: '1'
             ignore-unfixed: true
             vuln-type: 'os,library'
-            severity: 'CRITICAL,HIGH'              
-              
+            severity: 'CRITICAL,HIGH'     
 
-
-
-
-
-
-
-
-
+        - name: Push Docker Image to GAR
+          
+          run: |
+              docker tag github-gists:${{ steps.vars.outputs.SHORT_SHA }} asia-south1-docker.pkg.dev/virtual-limiter-237820/vulntracker/github-gists:${{ steps.vars.outputs.SHORT_SHA }}
+              docker push asia-south1-docker.pkg.dev/virtual-limiter-237820/vulntracker/github-gists:${{ steps.vars.outputs.SHORT_SHA }}
